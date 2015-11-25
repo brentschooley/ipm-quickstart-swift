@@ -33,7 +33,7 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.client = IPMessagingService.sharedService.client
             self.client?.delegate = self
             
-            self.joinChannelWithUniqueName("#quickstarttux")
+            self.joinChannelWithUniqueName("general")
         }
     }
     
