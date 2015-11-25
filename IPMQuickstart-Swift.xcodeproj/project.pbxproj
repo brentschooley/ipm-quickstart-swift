@@ -13,7 +13,6 @@
 		7860B8EE1C066E0500B01C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7860B8EC1C066E0500B01C2B /* LaunchScreen.storyboard */; };
 		7860B8F91C066E0500B01C2B /* IPMQuickstart_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860B8F81C066E0500B01C2B /* IPMQuickstart_SwiftTests.swift */; };
 		7860B9041C066E0500B01C2B /* IPMQuickstart_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860B9031C066E0500B01C2B /* IPMQuickstart_SwiftUITests.swift */; };
-		7860B9131C066E9600B01C2B /* TwilioIPMessagingClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7860B9121C066E9600B01C2B /* TwilioIPMessagingClient.framework */; };
 		7860B9151C066F5800B01C2B /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860B9141C066F5800B01C2B /* ChannelViewController.swift */; };
 		7860B9171C066F9E00B01C2B /* IPMessagingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860B9161C066F9E00B01C2B /* IPMessagingService.swift */; };
 		7860B9191C066FE100B01C2B /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7860B9181C066FE100B01C2B /* MessageTableViewCell.swift */; };
@@ -52,7 +51,6 @@
 		7860B9031C066E0500B01C2B /* IPMQuickstart_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPMQuickstart_SwiftUITests.swift; sourceTree = "<group>"; };
 		7860B9051C066E0500B01C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7860B9111C066E3100B01C2B /* IPMQuickstart-Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IPMQuickstart-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
-		7860B9121C066E9600B01C2B /* TwilioIPMessagingClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwilioIPMessagingClient.framework; sourceTree = "<group>"; };
 		7860B9141C066F5800B01C2B /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelViewController.swift; sourceTree = "<group>"; };
 		7860B9161C066F9E00B01C2B /* IPMessagingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPMessagingService.swift; sourceTree = "<group>"; };
 		7860B9181C066FE100B01C2B /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7860B9131C066E9600B01C2B /* TwilioIPMessagingClient.framework in Frameworks */,
 				7DAE05E51E02362ED7516447 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,7 +118,6 @@
 		7860B8E21C066E0500B01C2B /* IPMQuickstart-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				7860B9121C066E9600B01C2B /* TwilioIPMessagingClient.framework */,
 				7860B8E31C066E0500B01C2B /* AppDelegate.swift */,
 				7860B8E71C066E0500B01C2B /* Main.storyboard */,
 				7860B8EA1C066E0500B01C2B /* Assets.xcassets */,
