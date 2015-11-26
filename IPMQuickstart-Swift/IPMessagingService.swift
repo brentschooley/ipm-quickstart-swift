@@ -18,7 +18,7 @@ class IPMessagingService {
     static let sharedService = IPMessagingService()
     
     func initializeClient(device: String, completionHandler: () -> Void) {
-        Alamofire.request(.GET, "https://{{URL to quickstart server}}/token", parameters: ["device": "ios"])
+        Alamofire.request(.GET, "https://brent.ngrok.io/token", parameters: ["device": "ios"])
             .responseJSON { response in
                 if response.result.isFailure {
                     print("Error requesting token")

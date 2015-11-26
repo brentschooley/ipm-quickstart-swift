@@ -11,6 +11,7 @@ import UIKit
 class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, TwilioIPMessagingClientDelegate {
     var client: TwilioIPMessagingClient?
     var channel: TMChannel?
+    let channelName = "general"
     var messages: [TMMessage] = []
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -33,32 +34,34 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.client = IPMessagingService.sharedService.client
             self.client?.delegate = self
             
-            self.joinChannelWithUniqueName("general")
+            self.joinOrCreateChannel()
         }
     }
     
     // MARK: - IPM Management
-    func joinChannelWithUniqueName(name: String) {
-        self.client?.channelsListWithCompletion() {
-            (result, channels) -> Void in
-            if result == .Success {
-                if let channel = channels.channelWithUniqueName(name) {
-                    self.channel = channel
-                    self.joinChannel()
-                } else {
-                    channels.createChannelWithFriendlyName("General Channel", type: .Public) {
-                        (channelResult, channel) -> Void in
-                        if result == .Success {
-                            self.channel = channel
-                            self.joinChannelAndSetUniqueName(name)
-                        } else {
-                            print("Error creating channel")
-                        }
-                    }
-                }
+    func joinOrCreateChannel() {
+        self.client?.channelsListWithCompletion(self.channelListRetrieved)
+    }
+    
+    func channelListRetrieved(result: TMResultEnum, channels: TMChannels!) {
+        if result == .Success {
+            if let channel = channels.channelWithUniqueName(self.channelName) {
+                self.channel = channel
+                self.joinChannel()
             } else {
-                print("Error listing channels")
+                channels.createChannelWithFriendlyName("General Channel", type: .Public, completion:self.channelCreated)
             }
+        } else {
+            print("Error listing channels")
+        }
+    }
+    
+    func channelCreated(result: TMResultEnum, channel: TMChannel!) {
+        if result == .Success {
+            self.channel = channel
+            self.joinChannelAndSetUniqueName(self.channelName)
+        } else {
+            print("Error creating channel")
         }
     }
     
