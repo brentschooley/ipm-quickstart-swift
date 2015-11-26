@@ -20,6 +20,11 @@ class IPMessagingService {
     func initializeClient(device: String, completionHandler: () -> Void) {
         Alamofire.request(.GET, "https://{{URL to quickstart server}}/token", parameters: ["device": "ios"])
             .responseJSON { response in
+                if response.result.isFailure {
+                    print("Error requesting token")
+                    return
+                }
+                
                 guard let tokenResult = response.result.value else {
                     print("Error: did not receive data")
                     return

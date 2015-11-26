@@ -51,9 +51,13 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
                         if result == .Success {
                             self.channel = channel
                             self.joinChannelAndSetUniqueName(name)
+                        } else {
+                            print("Error creating channel")
                         }
                     }
                 }
+            } else {
+                print("Error listing channels")
             }
         }
     }
@@ -61,9 +65,8 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     func joinChannel() {
         self.channel?.joinWithCompletion() {
             (result) -> Void in
-            if result == .Success {
-                //self.channel?.delegate = self
-                //self.loadMessages()
+            if result != .Success {
+                print("Error joining channel")
             }
         }
     }
@@ -74,9 +77,12 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
             if result == .Success {
                 self.channel?.setUniqueName(name) {
                     (result) -> Void in
-                    //self.channel?.delegate = self
-                    //self.loadMessages()
+                    if result != .Success {
+                        print("Error setting unique name")
+                    }
                 }
+            } else {
+                print("Error joining channel")
             }
         }
     }
@@ -118,7 +124,6 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - Table view data source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -143,7 +148,6 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.messages.count
     }
     
